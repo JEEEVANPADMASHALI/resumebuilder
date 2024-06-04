@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder - Details</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto py-20">
+        <h2 class="text-3xl font-bold text-center mb-10">Enter Your Details</h2>
+        <form id="resumeForm" class="bg-white p-10 rounded-lg shadow-lg max-w-2xl mx-auto">
+            <div class="mb-6">
+                <label for="fullName" class="block text-gray-700">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <div class="mb-6">
+                <label for="email" class="block text-gray-700">Email:</label>
+                <input type="email" id="email" name="email" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <div class="mb-6">
+                <label for="phone" class="block text-gray-700">Phone:</label>
+                <input type="tel" id="phone" name="phone" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <div class="mb-6">
+                <label for="address" class="block text-gray-700">Address:</label>
+                <input type="text" id="address" name="address" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <div class="mb-6">
+                <label for="education" class="block text-gray-700">Education:</label>
+                <textarea id="education" name="education" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+            </div>
+            <div class="mb-6">
+                <label for="experience" class="block text-gray-700">Experience:</label>
+                <textarea id="experience" name="experience" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+            </div>
+            <div class="mb-6">
+                <label for="skills" class="block text-gray-700">Skills:</label>
+                <textarea id="skills" name="skills" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+            </div>
+            <div class="mb-6">
+                <label for="objective" class="block text-gray-700">Objective:</label>
+                <textarea id="objective" name="objective" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+            </div>
+            <div class="mb-6">
+                <label for="projects" class="block text-gray-700">Projects:</label>
+                <textarea id="projects" name="projects" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            </div>
+            <div class="mb-6">
+                <label for="references" class="block text-gray-700">References:</label>
+                <textarea id="references" name="references" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            </div>
+            <div class="flex justify-end">
+                <button type="button" onclick="saveForm()" class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300">Save & Next</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function saveForm() {
+            const form = document.getElementById('resumeForm');
+            const formData = new FormData(form);
+            const resumeData = {};
+            formData.forEach((value, key) => {
+                resumeData[key] = value;
+            });
+            localStorage.setItem('resumeData', JSON.stringify(resumeData));
+            window.location.href = 'templates.html';
+        }
+    </script>
+</body>
+</html>
